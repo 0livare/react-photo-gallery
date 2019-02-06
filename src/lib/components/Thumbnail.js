@@ -1,18 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-
-const Wrapper = styled.figure`
-  margin: 3px;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: auto;
-`
-
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-`
 
 export class Thumbnail extends React.Component {
   static propTypes = {
@@ -30,7 +17,7 @@ export class Thumbnail extends React.Component {
     let height = tokens[1]
 
     return (
-      <Wrapper
+      <div className='.psre-thumbnail-wrapper'
         style={{width: 200 * width / height}}
         itemProp="associatedMedia"
         itemScope=""
@@ -41,13 +28,13 @@ export class Thumbnail extends React.Component {
           href={this.props.largeImageUrl}
           itemProp="contentUrl"
         >
-          <Image
+          <img className='.psre-thumbnail-image'
             src={this.props.smallImageUrl}
             alt={this.props.caption}
             itemProp="thumbnail"
           />
         </a>
-      </Wrapper>
+      </div>
     )
   }
 }

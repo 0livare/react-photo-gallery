@@ -1,5 +1,5 @@
 import React from 'react'
-import 'photoswipe/dist/default-skin.css'
+import 'photoswipe/dist/default-skin/default-skin.css'
 
 export const PhotoswipeOverlay = () => (
   <div className="pswp" tabIndex="-1" role="dialog">

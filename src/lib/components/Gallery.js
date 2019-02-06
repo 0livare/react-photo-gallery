@@ -1,15 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 
+import './Gallery.css'
 import {Thumbnail} from './Thumbnail.js'
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-`
 
 export class Gallery extends React.Component {
   static propTypes = {
@@ -36,7 +29,7 @@ export class Gallery extends React.Component {
     }
 
     return (
-      <Wrapper>
+      <div className='.psre-gallery-wrapper'>
         {
           this.props.slides.map(function(slide, index) {
             return (
@@ -52,7 +45,7 @@ export class Gallery extends React.Component {
             )
           }, this)
         }
-      </Wrapper>
+      </div>
     )
   }
 }
