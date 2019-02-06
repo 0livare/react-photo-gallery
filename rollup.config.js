@@ -1,12 +1,12 @@
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
-import babel from 'rollup-plugin-babel'
 import pkg from './package.json'
+import postcss from 'rollup-plugin-postcss'
 
 export default [
 	// browser-friendly UMD build
 	{
-		input: 'src/lib/main.js',
+		input: 'babel/main.js',
 		output: {
 			name: 'photoswipeReact',
 			file: pkg.browser,
@@ -14,8 +14,8 @@ export default [
 		},
 		plugins: [
 			resolve(), // so Rollup can find `react`
-			babel({exclude: ['node_modules/**']}),
-			commonjs(), // so Rollup can convert `react` to an ES module
+      commonjs(), // so Rollup can convert `react` to an ES module
+      postcss(), // so .css files can be imported
 		]
 	},
 
@@ -26,16 +26,14 @@ export default [
 	// an array for the `output` option, where we can specify 
 	// `file` and `format` for each target)
 	{
-		input: 'src/lib/main.js',
+		input: 'babel/main.js',
 		external: ['react'],
 		output: [
 			{ file: pkg.main, format: 'cjs' },
 			{ file: pkg.module, format: 'es' }
-		],
-		plugins: [
-			babel({
-				exclude: ['node_modules/**']
-			})
-		]
+    ],
+    plugins: [
+      postcss(),
+    ]
 	}
 ]
