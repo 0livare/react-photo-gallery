@@ -1,14 +1,14 @@
 const path = require('path')
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: './src/lib/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'photoswipe-react.js',
     library: 'photoswipeReact',
     libraryTarget: 'umd',
-    globalObject: 'typeof self !== \'undefined\' ? self : this',
+    globalObject: 'this || self',
   },
   module: {
     rules: [
