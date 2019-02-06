@@ -1,5 +1,3 @@
-import resolve from 'rollup-plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
 import pkg from './package.json'
 import postcss from 'rollup-plugin-postcss'
 import babel from 'rollup-plugin-babel'
@@ -38,12 +36,12 @@ export default [
 			{ file: pkg.module, format: 'es' }
     ],
     plugins: [
+      postcss({extract: true}),
       babel({
         // include: 'src/lib/*',
         exclude: 'node_modules/**',
         // runtimeHelpers: true,
       }),
-      postcss(),
     ]
 	}
 ]
