@@ -1,16 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export class Thumbnail extends React.Component {
-  static propTypes = {
-    index: PropTypes.number.isRequired,
-    size: PropTypes.string.isRequired,
-    caption: PropTypes.string.isRequired,
-    largeImageUrl: PropTypes.string.isRequired,
-    smallImageUrl: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-  }
-
+class Thumbnail extends React.Component {
   render() {
     let tokens = this.props.size.split('x')
     let width = tokens[0]
@@ -38,3 +29,14 @@ export class Thumbnail extends React.Component {
     )
   }
 }
+
+Thumbnail.propTypes = {
+  index: PropTypes.number.isRequired,
+  size: PropTypes.string.isRequired,
+  caption: PropTypes.string.isRequired,
+  largeImageUrl: PropTypes.string.isRequired,
+  smallImageUrl: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+}
+
+export {Thumbnail}

@@ -4,20 +4,7 @@ import PropTypes from 'prop-types'
 import './Gallery.css'
 import {Thumbnail} from './Thumbnail.js'
 
-export class Gallery extends React.Component {
-  static propTypes = {
-    galleryId: PropTypes.number.isRequired,
-    openPhotoswipe: PropTypes.func.isRequired,
-    slides: PropTypes.arrayOf(PropTypes.shape({
-      src: PropTypes.string.isRequired,
-      msrc: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      size: PropTypes.string,
-      w: PropTypes.number,
-      h: PropTypes.number,
-    })).isRequired,
-  }
-
+class Gallery extends React.Component {
   render() {
     // Parse width and height from size string
     for(let slide of this.props.slides) {
@@ -49,3 +36,18 @@ export class Gallery extends React.Component {
     )
   }
 }
+
+Gallery.propTypes = {
+  galleryId: PropTypes.number.isRequired,
+  openPhotoswipe: PropTypes.func.isRequired,
+  slides: PropTypes.arrayOf(PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    msrc: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    size: PropTypes.string,
+    w: PropTypes.number,
+    h: PropTypes.number,
+  })).isRequired,
+}
+
+export {Gallery}
