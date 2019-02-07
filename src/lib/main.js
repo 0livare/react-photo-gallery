@@ -21,7 +21,7 @@ class Photoswipe extends React.Component {
     let pswpElement = document.querySelectorAll('.pswp')[0]
     let options = {index, galleryUID: this.props.galleryId}
 
-    let gallery = new Photoswipe(
+    let gallery = new PhotoswipeBase(
       pswpElement,
       PhotoswipeUI_Default,
       this.props.slides,
