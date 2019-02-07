@@ -1,23 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Photoswipe from 'photoswipe'
+import PhotoswipeBase from 'photoswipe'
 import PhotoswipeUI_Default from 'photoswipe/dist/photoswipe-ui-default'
 
 import {Gallery} from './components/Gallery'
 import {PhotoswipeOverlay} from './components/photoswipe/PhotoswipeOverlay'
+import {slide} from './types'
 
-class ReactPhotoswipe extends React.Component {
+class Photoswipe extends React.Component {
   static propTypes = {
     galleryId: PropTypes.number.isRequired,
-    slides: PropTypes.arrayOf(PropTypes.shape({
-      src: PropTypes.string.isRequired,
-      msrc: PropTypes.string.isRequired,
-      title: PropTypes.string,
-      size: PropTypes.string,
-      w: PropTypes.number,
-      h: PropTypes.number,
-    })).isRequired,
+    slides: PropTypes.arrayOf(slide).isRequired,
   }
 
   openPhotoswipe = (e, index) => {
@@ -51,4 +45,4 @@ class ReactPhotoswipe extends React.Component {
   }
 }
 
-export default ReactPhotoswipe
+export default Photoswipe

@@ -6,6 +6,7 @@ import Photoswipe from 'photoswipe'
 import PhotoswipeUI_Default from 'photoswipe/dist/photoswipe-ui-default'
 
 import {Thumbnail} from './Thumbnail.js'
+import {slide} from '../types'
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,14 +18,7 @@ const Wrapper = styled.div`
 export class Gallery extends React.Component {
   static propTypes = {
     galleryId: PropTypes.number.isRequired,
-    slides: PropTypes.arrayOf(PropTypes.shape({
-      src: PropTypes.string.isRequired,
-      msrc: PropTypes.string.isRequired,
-      title: PropTypes.string,
-      size: PropTypes.string,
-      w: PropTypes.string,
-      h: PropTypes.string,
-    })).isRequired,
+    slides: PropTypes.arrayOf(slide).isRequired,
   }
 
   openPhotoswipe = (e, index) => {
@@ -62,12 +56,8 @@ export class Gallery extends React.Component {
               <Thumbnail
                 key={slide.src}
                 index={index}
-                w={slide.w}
-                h={slide.h}
-                caption={slide.caption}
-                largeImageUrl={slide.src}
-                smallImageUrl={slide.msrc}
                 onClick={this.openPhotoswipe}
+                slide={slide}
               />
             )
           }, this)

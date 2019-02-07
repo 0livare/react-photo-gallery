@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+import {slide} from '../types'
+
 const Wrapper = styled.figure`
   margin: 3px;
   flex-grow: 1;
@@ -17,34 +19,30 @@ const Image = styled.img`
 export class Thumbnail extends React.Component {
   static propTypes = {
     index: PropTypes.number.isRequired,
-    caption: PropTypes.string,
-    largeImageUrl: PropTypes.string.isRequired,
-    smallImageUrl: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
-    w: PropTypes.string.isRequired,
-    h: PropTypes.string.isRequired,
+    slide: slide.isRequired,
   }
 
   
   render() {
-    let {w, h} = this.props
+    let {slide} = this.props
 
     return (
       <Wrapper
-        style={{width: 200 * w / h}}
-        itemProp="associatedMedia"
-        itemScope=""
-        itemType="http://schema.org/ImageObject"
+        style={{width: 200 * slide.w / slide.h}}
+        itemProp='associatedMedia'
+        itemScope=''
+        itemType='http://schema.org/ImageObject'
         onClick={(e) => this.props.onClick(e, this.props.index)}
       >
         <a
-          href={this.props.largeImageUrl}
-          itemProp="contentUrl"
+          href={slide.src}
+          itemProp='contentUrl'
         >
           <Image
-            src={this.props.smallImageUrl}
-            alt={this.props.caption}
-            itemProp="thumbnail"
+            src={slide.msrc}
+            alt={slide.caption}
+            itemProp='thumbnail'
           />
         </a>
       </Wrapper>
