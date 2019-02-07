@@ -16,13 +16,18 @@ const Wrapper = styled.div`
 
 export class Gallery extends React.Component {
   static propTypes = {
-    slides: PropTypes.array.isRequired,
-    gid: PropTypes.number.isRequired,
+    galleryId: PropTypes.number.isRequired,
+    slides: PropTypes.arrayOf(PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      msrc: PropTypes.string.isRequired,
+      title: PropTypes.string,
+      size: PropTypes.string,
+      w: PropTypes.string,
+      h: PropTypes.string,
+    })).isRequired,
   }
 
   openPhotoswipe = (e, index) => {
-    console.log('Opening photoswipe')
-
     // Don't navigate to the url on the anchor tag to go to flicker
     e.preventDefault()
 
@@ -42,6 +47,8 @@ export class Gallery extends React.Component {
   render() {
     // Parse width and height from size string
     for(let slide of this.props.slides) {
+      if ((slide.w && slide.h) || !slide.size) continue
+
       let size = slide.size.split('x')
       slide.w = size[0]
       slide.h = size[1]

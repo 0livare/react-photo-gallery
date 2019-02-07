@@ -8,12 +8,19 @@ import {Gallery} from './components/Gallery'
 import {PhotoswipeOverlay} from './components/photoswipe/PhotoswipeOverlay'
 
 class ReactPhotoswipe extends React.Component {
-  constructor(props) {
-    super(props)
-    this.openPhotoswipe = this.openPhotoswipe.bind(this)
+  static propTypes = {
+    galleryId: PropTypes.number.isRequired,
+    slides: PropTypes.arrayOf(PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      msrc: PropTypes.string.isRequired,
+      title: PropTypes.string,
+      size: PropTypes.string,
+      w: PropTypes.number,
+      h: PropTypes.number,
+    })).isRequired,
   }
 
-  openPhotoswipe(e, index) {
+  openPhotoswipe = (e, index) => {
     // Don't navigate to the url on the anchor tag to go to flicker
     e.preventDefault()
 
@@ -42,18 +49,6 @@ class ReactPhotoswipe extends React.Component {
       </>
     )
   }
-}
-
-ReactPhotoswipe.propTypes = {
-  galleryId: PropTypes.number.isRequired,
-  slides: PropTypes.arrayOf(PropTypes.shape({
-    src: PropTypes.string.isRequired,
-    msrc: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    size: PropTypes.string,
-    w: PropTypes.number,
-    h: PropTypes.number,
-  })).isRequired,
 }
 
 export default ReactPhotoswipe
