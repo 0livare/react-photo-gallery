@@ -20,8 +20,9 @@ export class Gallery extends React.Component {
   }
 
   render() {
-    const {slides} = this.props
+    let {slides} = this.props
     if (!slides || !slides.length) return <div />
+    slides = slides.filter(s => s)
 
     // Parse width and height from size string
     for(let slide of slides) {
@@ -31,6 +32,7 @@ export class Gallery extends React.Component {
       slide.w = size[0]
       slide.h = size[1]
     }
+
 
     return (
       <Wrapper>
