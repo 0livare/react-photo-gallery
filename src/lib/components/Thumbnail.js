@@ -17,21 +17,21 @@ const Image = styled.img`
 export class Thumbnail extends React.Component {
   static propTypes = {
     index: PropTypes.number.isRequired,
-    size: PropTypes.string.isRequired,
-    caption: PropTypes.string.isRequired,
+    caption: PropTypes.string,
     largeImageUrl: PropTypes.string.isRequired,
     smallImageUrl: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
+    w: PropTypes.string.isRequired,
+    h: PropTypes.string.isRequired,
   }
 
+  
   render() {
-    let tokens = this.props.size.split('x')
-    let width = tokens[0]
-    let height = tokens[1]
+    let {w, h} = this.props
 
     return (
       <Wrapper
-        style={{width: 200 * width / height}}//, maxWidth: '500px'}}
+        style={{width: 200 * w / h}}
         itemProp="associatedMedia"
         itemScope=""
         itemType="http://schema.org/ImageObject"

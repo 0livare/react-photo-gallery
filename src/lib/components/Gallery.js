@@ -62,7 +62,8 @@ export class Gallery extends React.Component {
               <Thumbnail
                 key={slide.src}
                 index={index}
-                size={slide.size}
+                w={slide.w}
+                h={slide.h}
                 caption={slide.caption}
                 largeImageUrl={slide.src}
                 smallImageUrl={slide.msrc}
