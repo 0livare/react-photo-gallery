@@ -3,10 +3,9 @@ import PropTypes from 'prop-types'
 
 import Photoswipe from 'photoswipe'
 import PhotoswipeUI_Default from 'photoswipe/dist/photoswipe-ui-default'
-import 'photoswipe/dist/photoswipe.css'
 
 import {Gallery} from './components/Gallery'
-import {PhotoswipeOverlay} from './components/PhotoswipeOverlay'
+import {PhotoswipeOverlay} from './components/photoswipe/PhotoswipeOverlay'
 
 class ReactPhotoswipe extends React.Component {
   constructor(props) {
