@@ -1,6 +1,6 @@
 {
   "name": "@zposten/photoswipe-react",
-  "version": "0.1.20",
+  "version": "0.1.21",
   "main": "dist/photoswipe-react.cjs.js",
   "module": "dist/photoswipe-react.esm.js",
   "license": "MIT",

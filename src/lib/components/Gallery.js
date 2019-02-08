@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  max-width: 100%;
 `
 
 export class Gallery extends React.Component {

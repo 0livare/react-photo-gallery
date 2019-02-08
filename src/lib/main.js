@@ -12,6 +12,7 @@ class Photoswipe extends React.Component {
   static propTypes = {
     galleryId: PropTypes.number.isRequired,
     slides: PropTypes.arrayOf(slide).isRequired,
+    className: PropTypes.string,
   }
 
   openPhotoswipe = (e, index) => {
@@ -35,6 +36,7 @@ class Photoswipe extends React.Component {
     return (
       <>
         <Gallery 
+          className={this.props.className}
           openPhotoswipe={this.openPhotoswipe}
           slides={this.props.slides}
           galleryId={this.props.galleryId}
