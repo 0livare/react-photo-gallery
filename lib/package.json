@@ -2,7 +2,7 @@
   "name": "@zposten/photo-gallery",
   "description": "A strongly typed, customizable, React photo viewer with mobile gestures built in that looks great right out of the box.",
   "author": "Zach Posten <zach@posten.io>",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "license": "MIT",
