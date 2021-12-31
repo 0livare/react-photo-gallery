@@ -1,0 +1,16 @@
+.pwsp-gallery {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  max-width: 100%;
+}
+
+.pwsp-thumbnail {
+  margin: 3px;
+  flex: 1 1 auto;
+}
+
+.pwsp-thumbnail img {
+  width: 100%;
+  height: 100%;
+}

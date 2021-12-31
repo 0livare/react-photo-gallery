@@ -56,6 +56,8 @@ export const Gallery = React.forwardRef(
       pswpRef.current.items = modifiedSlides
     }, [slides])
 
-    return <div {...rest} className={cs(className)} ref={rootRef} />
+    return (
+      <div {...rest} className={cs('pwsp-gallery', className)} ref={rootRef} />
+    )
   },
 )

@@ -40,7 +40,7 @@ export function Thumbnail(props: ThumbnailProps) {
       itemProp="associatedMedia"
       itemType="http://schema.org/ImageObject"
       onClick={handleClick}
-      className={cs(className, classes.root)}
+      className={cs('pwsp-thumbnail', className, classes.root)}
       {...rest}
     >
       <a
