@@ -1,1 +1,2 @@
-export const foo: string = 'foo'
+export * from './gallery'
+export * from './light-box'
