@@ -17,10 +17,9 @@ npm i @zposten/photoswipe-react
 First you need to add the global CSS to your project. There are two difference CSS files for your to import.
 
 ```bash
-# The required CSS directly ported form photoswipe
 @zposten/photoswipe-react/dist/photoswipe.css
-# A few lines of additional CSS that this library provides for an optimal experience
-@zposten/photoswipe-react/dist/photoswipe-react.css
+@zposten/photoswipe-react/dist/default-skin.css
+@zposten/photoswipe-react/dist/photoswipe-react.css # Optional
 ```
 
 ```tsx
