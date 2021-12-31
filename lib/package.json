@@ -7,8 +7,7 @@
   "module": "dist/index.esm.js",
   "license": "MIT",
   "files": [
-    "dist/*",
-    "../README.md"
+    "dist/*"
   ],
   "repository": {
     "type": "git",
@@ -18,9 +17,9 @@
     "prebuild": "rimraf dist/*",
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "prepub": "yarn build && yarn version",
+    "prepub": "cp ../README.md README.md && yarn build && yarn version",
     "pub": "npm publish --access public",
-    "postpub": "git push && git push --tags"
+    "postpub": "rm README.MD && git push && git push --tags"
   },
   "dependencies": {
     "classnames": "^2.3.1",
