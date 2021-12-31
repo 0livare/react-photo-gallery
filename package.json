@@ -2,6 +2,7 @@
   "name": "@zposten/photoswipe-react",
   "version": "0.2.0",
   "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "license": "MIT",
   "files": [
     "dist/*"
@@ -11,7 +12,8 @@
     "url": "http://www.github.com/zposten/photoswipe-react"
   },
   "scripts": {
-    "build": "rimraf dist && rollup -c",
+    "prebuild": "rimraf dist/*",
+    "build": "rollup -c",
     "watch": "rollup -c -w",
     "prepub": "yarn build && yarn version",
     "pub": "npm publish",
