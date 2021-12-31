@@ -3,6 +3,8 @@
 A strongly typed, customizable, React photo viewer with mobile gestures built in that looks great right out of the box.
 Based on the [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe) library.
 
+### [Demo](https://photoswipe-react-demo.netlify.app)
+
 ## Installation
 
 ```bash
@@ -70,6 +72,7 @@ let slides: Slide[] = [
   {
     src: 'https://farm1.staticflickr.com/5756/22780612953_55b06ca4d5_k.jpg',
     size: '2048x1365',
+    // msrc is a lower resolution version of src
     msrc: 'https://farm1.staticflickr.com/5756/22780612953_78da6eb9ec_n.jpg',
     title: 'Streamers',
   },

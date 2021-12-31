@@ -1,0 +1,45 @@
+{
+  "name": "@zposten/photoswipe-react",
+  "description": "A strongly typed, customizable, React photo viewer with mobile gestures built in that looks great right out of the box.",
+  "author": "Zach Posten <zach@posten.io>",
+  "version": "0.2.0",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "license": "MIT",
+  "files": [
+    "dist/*",
+    "../README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://www.github.com/zposten/photoswipe-react"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist/*",
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "prepub": "yarn build && yarn version",
+    "pub": "npm publish",
+    "postpub": "git push && git push --tags"
+  },
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "photoswipe": "^4.1.3"
+  },
+  "peerDependencies": {
+    "react": ">16.8.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@types/photoswipe": "^4.1.2",
+    "@types/react": "^17.0.38",
+    "cross-env": "^5.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^16.8.0-alpha.1",
+    "rimraf": "^2.6.3",
+    "rollup": "^2.62.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.4"
+  }
+}
