@@ -1,50 +1,89 @@
 # photoswipe-react
 
-A React wrapper for the [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe) library.
+A strongly typed, customizable, React photo viewer with mobile gestures built in that looks great right out of the box.
+Based on the [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe) library.
+
+## Installation
+
+```bash
+# With yarn
+yarn add @zposten/photoswipe-react
+
+# Or with NPM
+npm i @zposten/photoswipe-react
+```
+
+## Import Global CSS
+
+First you need to add the global CSS to your project. Depending on your project setup, how you import this global CSS will be slightly different.
+
+This works for create-react-app and Next.js projects (it must be done in `_app.js` for Next.js projects):
+
+```js
+import '@zposten/photoswipe-react/dist/photoswipe.css'
+import '@zposten/photoswipe-react/dist/default-skin.css'
+import '@zposten/photoswipe-react/dist/thumbnails.css' // Optional
+```
+
+In Remix, you can add the following at [route layout boundaries](https://remix.run/docs/en/v1/guides/styling):
+
+```js
+export function links() {
+  return [
+    {
+      rel: 'stylesheet',
+      href: '@zposten/photoswipe-react/dist/photoswipe.css',
+    },
+    {
+      rel: 'stylesheet',
+      href: '@zposten/photoswipe-react/dist/default-skin.css',
+    },
+    {
+      // Optional
+      rel: 'stylesheet',
+      href: '@zposten/photoswipe-react/dist/thumbnails.css',
+    },
+  ]
+}
+```
 
 ## Usage
 
-```bash
-yarn add @zposten/photoswipe-react styled-components
-```
+The markup is simple yet customizable. The hardest part is just collecting all your image data into the slide format.
 
-```jsx
-import Photoswipe from '@zposten/photoswipe-react'
+```tsx
+import {Gallery, LightBox, Thumbnail} from '@zposten/photoswipe-react'
+import type {Slide} from '@zposten/photoswipe-react'
 
 function MyComponent() {
   return (
-    <Photoswipe
-      slides={slides}
-      galleryId={0}
-    />
+    <Gallery slides={slides}>
+      {slides.map(slide => (
+        <Thumbnail key={slide.src} slide={slide} aspectRatioMultiplier={200} />
+      ))}
+      <LightBox />
+    </Gallery>
   )
 }
 
-const slides = [
+let slides: Slide[] = [
   {
     src: 'https://farm1.staticflickr.com/5756/22780612953_55b06ca4d5_k.jpg',
     size: '2048x1365',
     msrc: 'https://farm1.staticflickr.com/5756/22780612953_78da6eb9ec_n.jpg',
-    title: 'Streamers'
+    title: 'Streamers',
   },
   {
     src: 'https://farm1.staticflickr.com/709/22780611703_17ac7e37c0_k.jpg',
     size: '2048x1216',
     msrc: 'https://farm1.staticflickr.com/709/22780611703_cac1dee1f2_n.jpg',
-    title: 'Blue Dock'
+    title: 'Blue Dock',
   },
   {
     src: 'https://farm1.staticflickr.com/5629/23407658115_cfa1899b10_k.jpg',
     size: '2048x879',
     msrc: 'https://farm1.staticflickr.com/5629/23407658115_851dece750_n.jpg',
-    title: 'Christmas Light'
+    title: 'Christmas Light',
   },
 ]
-
 ```
-
-## Notes
-
-- This library currently does not allow for a custom implementation of the grid of photos because I think in order to make this work, I will have to implement React context to pass the `openPhotoswipe()` prop down.
-
-- This library currently depends on styled-components because I couldn't find another nice way to bundle styles without external CSS files.

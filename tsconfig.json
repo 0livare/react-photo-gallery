@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",            // Output files to the dist directory -- duplicated from rollup config for source maps
+    "declaration": true,         // Automatically generate .d.ts files
+    "target": "es6",             // Compile files into an es6 format
+    "moduleResolution": "node",  // Search under node_modules for non-relative imports
+    "esModuleInterop": true,      // Import non-ES modules as default imports
+    "jsx": "react"
+  },
+  "include": ["src"], // Only compile files in the src/ directory
+}
