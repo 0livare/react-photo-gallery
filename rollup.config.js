@@ -19,11 +19,11 @@ export default {
           dest: 'dist',
         },
         {
-          src: 'node_modules/photoswipe/dist/default-skin/default-skin.css',
+          src: 'node_modules/photoswipe/dist/default-skin/*',
           dest: 'dist',
         },
         {
-          src: 'src/photoswipe-react.css',
+          src: 'src/*.css',
           dest: 'dist',
         },
       ],

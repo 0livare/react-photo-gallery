@@ -5,15 +5,15 @@ import {Slide} from './types'
 import {useGalleryContext} from './gallery-context'
 
 export type ThumbnailProps = React.HtmlHTMLAttributes<HTMLElement> & {
-  onClick?(e: React.MouseEvent<HTMLElement>): void
   slide: Slide
+  onClick?(e: React.MouseEvent<HTMLElement>): void
   classes?: {
     root?: string
     anchor?: string
     image?: string
   }
-  anchorProps: React.HtmlHTMLAttributes<HTMLAnchorElement>
-  imageProps: React.HtmlHTMLAttributes<HTMLImageElement>
+  anchorProps?: React.HtmlHTMLAttributes<HTMLAnchorElement>
+  imageProps?: React.HtmlHTMLAttributes<HTMLImageElement>
 }
 
 export function Thumbnail(props: ThumbnailProps) {
@@ -27,7 +27,7 @@ export function Thumbnail(props: ThumbnailProps) {
     ...rest
   } = props
 
-  const {photoSwipe} = useGalleryContext()
+  const {openLightBox} = useGalleryContext()
 
   function handleClick(e: React.MouseEvent<HTMLElement>) {
     // Don't navigate to the url on the anchor tag to go to
@@ -35,9 +35,7 @@ export function Thumbnail(props: ThumbnailProps) {
     e.preventDefault()
 
     onClick?.(e)
-
-    photoSwipe.currItem = slide
-    photoSwipe.init()
+    openLightBox(slide)
   }
 
   return (
@@ -55,9 +53,11 @@ export function Thumbnail(props: ThumbnailProps) {
         className={cs(classes.anchor, anchorProps.className)}
       >
         <img
-          src={slide.msrc}
-          alt={slide.caption}
+          src={slide.msrc || slide.src}
+          alt={slide.title}
           itemProp="thumbnail"
+          width={slide.w}
+          height={slide.h}
           {...imageProps}
           className={cs(classes.image, imageProps.className)}
         />

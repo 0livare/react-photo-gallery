@@ -1,6 +1,6 @@
 # photoswipe-react
 
-A React wrapper for the [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe) library.
+A (strongly typed) React wrapper for the [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe) library.
 
 ## Installation
 
@@ -12,22 +12,52 @@ yarn add @zposten/photoswipe-react
 npm i @zposten/photoswipe-react
 ```
 
-## Usage
+## Import Global CSS
 
-First you need to add the global CSS to your project. There are two difference CSS files for your to import.
+First you need to add the global CSS to your project. Depending on your project setup, how you import this global CSS will be slightly different.
 
-```bash
-@zposten/photoswipe-react/dist/photoswipe.css
-@zposten/photoswipe-react/dist/default-skin.css
-@zposten/photoswipe-react/dist/photoswipe-react.css # Optional
+This works for create-react-app and Next.js projects (it must be done in `_app.js` for Next.js projects):
+
+```js
+import '@zposten/photoswipe-react/dist/photoswipe.css'
+import '@zposten/photoswipe-react/dist/default-skin.css'
+import '@zposten/photoswipe-react/dist/gallery.css' // Optional
 ```
 
+In Remix, you can add the following at [route layout boundaries](https://remix.run/docs/en/v1/guides/styling):
+
+```js
+export function links() {
+  return [
+    {
+      rel: 'stylesheet',
+      href: '@zposten/photoswipe-react/dist/photoswipe.css',
+    },
+    {
+      rel: 'stylesheet',
+      href: '@zposten/photoswipe-react/dist/default-skin.css',
+    },
+    {
+      // Optional
+      rel: 'stylesheet',
+      href: '@zposten/photoswipe-react/dist/gallery.css',
+    },
+  ]
+}
+```
+
+## Usage
+
+The markup is simple yet customizable. The hardest part is collecting all your image data into the slide format.
+
 ```tsx
-import {Gallery, LightBox, Thumbnail, Slide} from '@zposten/photoswipe-react'
+import {Slide} from '@zposten/photoswipe-react'
+import {Gallery, LightBox, Thumbnail} from '@zposten/photoswipe-react'
+import type {Slide} from '@zposten/photoswipe-react'
 
 function MyComponent() {
   return (
-    <Gallery slides={slides} galleryId={0}>
+    <Gallery slides={slides}>
       {slides.map(slide => (
         <Thumbnail key={slide.src} slide={slide} />
       ))}

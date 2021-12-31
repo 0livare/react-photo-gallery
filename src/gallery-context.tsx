@@ -1,12 +1,13 @@
 import React, {useContext} from 'react'
-import PhotoSwipe, {Options} from 'photoswipe'
+
+import {Slide} from './types'
 
 export type GalleryContextShape = {
-  photoSwipe: PhotoSwipe<Options>
+  openLightBox(slide: Slide): void
 }
 
 let defaultGalleryContext: GalleryContextShape = {
-  photoSwipe: null,
+  openLightBox: () => {},
 }
 
 let GalleryContext = React.createContext(defaultGalleryContext)
