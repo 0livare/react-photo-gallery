@@ -3,10 +3,10 @@
   flex-flow: row wrap;
   justify-content: space-between;
   max-width: 100%;
+  gap: 8px;
 }
 
 .pwsp-thumbnail {
-  margin: 3px;
   flex: 1 1 auto;
 }
 

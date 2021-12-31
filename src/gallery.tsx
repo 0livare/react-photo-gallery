@@ -58,7 +58,7 @@ export let Gallery = React.forwardRef(
     }, [])
 
     return (
-      <Provider value={{openLightBox}}>
+      <Provider value={{openLightBox, modifiedSlides}}>
         <div
           {...rest}
           className={cs('pwsp-gallery', className)}
