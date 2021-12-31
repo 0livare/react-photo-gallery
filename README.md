@@ -12,35 +12,29 @@ yarn add @zposten/photoswipe-react styled-components
 import Photoswipe from '@zposten/photoswipe-react'
 
 function MyComponent() {
-  return (
-    <Photoswipe
-      slides={slides}
-      galleryId={0}
-    />
-  )
+  return <Photoswipe slides={slides} galleryId={0} />
 }
 
-const slides = [
+let slides = [
   {
     src: 'https://farm1.staticflickr.com/5756/22780612953_55b06ca4d5_k.jpg',
     size: '2048x1365',
     msrc: 'https://farm1.staticflickr.com/5756/22780612953_78da6eb9ec_n.jpg',
-    title: 'Streamers'
+    title: 'Streamers',
   },
   {
     src: 'https://farm1.staticflickr.com/709/22780611703_17ac7e37c0_k.jpg',
     size: '2048x1216',
     msrc: 'https://farm1.staticflickr.com/709/22780611703_cac1dee1f2_n.jpg',
-    title: 'Blue Dock'
+    title: 'Blue Dock',
   },
   {
     src: 'https://farm1.staticflickr.com/5629/23407658115_cfa1899b10_k.jpg',
     size: '2048x879',
     msrc: 'https://farm1.staticflickr.com/5629/23407658115_851dece750_n.jpg',
-    title: 'Christmas Light'
+    title: 'Christmas Light',
   },
 ]
-
 ```
 
 ## Notes

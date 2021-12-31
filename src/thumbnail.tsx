@@ -2,9 +2,10 @@ import React from 'react'
 import cs from 'classnames'
 
 import {Slide} from './types'
+import {useGalleryContext} from './gallery-context'
 
 export type ThumbnailProps = React.HtmlHTMLAttributes<HTMLElement> & {
-  onClick(e: React.MouseEvent<HTMLElement>): void
+  onClick?(e: React.MouseEvent<HTMLElement>): void
   slide: Slide
   classes?: {
     root?: string
@@ -26,13 +27,17 @@ export function Thumbnail(props: ThumbnailProps) {
     ...rest
   } = props
 
-  // TODO: Tell the gallery to open this photo
+  const {photoSwipe} = useGalleryContext()
+
   function handleClick(e: React.MouseEvent<HTMLElement>) {
     // Don't navigate to the url on the anchor tag to go to
     // flicker or wherever the image is hosted
     e.preventDefault()
 
-    onClick(e)
+    onClick?.(e)
+
+    photoSwipe.currItem = slide
+    photoSwipe.init()
   }
 
   return (

@@ -4,6 +4,7 @@ import PhotoSwipe, {Options} from 'photoswipe'
 import DefaultPhotoSwipeUI from 'photoswipe/dist/photoswipe-ui-default'
 
 import {Slide} from './types'
+import {Provider} from './gallery-context'
 
 export type GalleryProps = React.HtmlHTMLAttributes<HTMLDivElement> & {
   galleryId: number
@@ -11,17 +12,17 @@ export type GalleryProps = React.HtmlHTMLAttributes<HTMLDivElement> & {
   options: Options
 }
 
-export const Gallery = React.forwardRef(
+export let Gallery = React.forwardRef(
   (props: GalleryProps, ref: React.RefObject<PhotoSwipe<Options>>) => {
     let {className, galleryId, slides, options, ...rest} = props
 
-    const rootRef = useRef<HTMLDivElement>(null)
-    const pswpRef = useRef<PhotoSwipe<Options>>(null)
+    let rootRef = useRef<HTMLDivElement>(null)
+    let photoSwipeRef = useRef<PhotoSwipe<Options>>(null)
 
     // @ts-ignore
-    ref?.current = pswpRef.current
+    ref?.current = photoSwipeRef.current
 
-    const modifiedSlides: Slide[] = useMemo(
+    let modifiedSlides: Slide[] = useMemo(
       () =>
         slides
           .filter(x => x)
@@ -38,7 +39,7 @@ export const Gallery = React.forwardRef(
         '.pswp',
       ) as HTMLElement
 
-      let gallery = new PhotoSwipe(
+      let photoSwipe = new PhotoSwipe(
         lightBoxElement,
         DefaultPhotoSwipeUI,
         modifiedSlides,
@@ -48,16 +49,21 @@ export const Gallery = React.forwardRef(
         },
       )
 
-      gallery.init()
-      pswpRef.current = gallery
+      photoSwipeRef.current = photoSwipe
     }, [])
 
     useEffect(() => {
-      pswpRef.current.items = modifiedSlides
+      photoSwipeRef.current.items = modifiedSlides
     }, [slides])
 
     return (
-      <div {...rest} className={cs('pwsp-gallery', className)} ref={rootRef} />
+      <Provider value={{photoSwipe: photoSwipeRef.current}}>
+        <div
+          {...rest}
+          className={cs('pwsp-gallery', className)}
+          ref={rootRef}
+        />
+      </Provider>
     )
   },
 )
