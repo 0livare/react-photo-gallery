@@ -18,8 +18,8 @@ export type ThumbnailProps = React.HtmlHTMLAttributes<HTMLElement> & {
 
 export function Thumbnail(props: ThumbnailProps) {
   let {
-    onClick,
     slide,
+    onClick,
     className,
     classes = {},
     anchorProps = {},
