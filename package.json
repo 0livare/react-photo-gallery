@@ -11,7 +11,7 @@
     "url": "http://www.github.com/zposten/photoswipe-react"
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "rimraf dist && rollup -c",
     "watch": "rollup -c -w",
     "prepub": "yarn build && yarn version",
     "pub": "npm publish",

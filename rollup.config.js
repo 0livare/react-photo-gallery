@@ -7,7 +7,6 @@ export default {
   output: {
     format: 'es',
     dir: 'dist',
-    sourcemap: true,
   },
   // Do not include any 3rd party libraries in the bundled code
   external: id => !id.startsWith('.') && !path.isAbsolute(id),
