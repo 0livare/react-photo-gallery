@@ -1,9 +1,9 @@
-import {Gallery, LightBox, Thumbnail} from '@zposten/photoswipe-react'
-import type {Slide} from '@zposten/photoswipe-react'
+import {Gallery, LightBox, Thumbnail} from '@zposten/photo-gallery'
+import type {Slide} from '@zposten/photo-gallery'
 
-import '@zposten/photoswipe-react/dist/photoswipe.css'
-import '@zposten/photoswipe-react/dist/default-skin.css'
-import '@zposten/photoswipe-react/dist/thumbnails.css'
+import '@zposten/photo-gallery/dist/photoswipe.css'
+import '@zposten/photo-gallery/dist/default-skin.css'
+import '@zposten/photo-gallery/dist/thumbnails.css'
 
 export function App() {
   return (

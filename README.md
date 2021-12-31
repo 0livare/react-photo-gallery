@@ -1,4 +1,4 @@
-# photoswipe-react
+# React Photo Gallery
 
 A strongly typed, customizable, React photo viewer with mobile gestures built in that looks great right out of the box.
 Based on the [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe) library.
@@ -9,10 +9,10 @@ Based on the [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe) library.
 
 ```bash
 # With yarn
-yarn add @zposten/photoswipe-react
+yarn add @zposten/photo-gallery
 
 # Or with NPM
-npm i @zposten/photoswipe-react
+npm i @zposten/photo-gallery
 ```
 
 ## Import Global CSS
@@ -22,9 +22,9 @@ First you need to add the global CSS to your project. Depending on your project 
 This works for create-react-app and Next.js projects (it must be done in `_app.js` for Next.js projects):
 
 ```js
-import '@zposten/photoswipe-react/dist/photoswipe.css'
-import '@zposten/photoswipe-react/dist/default-skin.css'
-import '@zposten/photoswipe-react/dist/thumbnails.css' // Optional
+import '@zposten/photo-gallery/dist/photoswipe.css'
+import '@zposten/photo-gallery/dist/default-skin.css'
+import '@zposten/photo-gallery/dist/thumbnails.css' // Optional
 ```
 
 In Remix, you can add the following at [route layout boundaries](https://remix.run/docs/en/v1/guides/styling):
@@ -34,16 +34,16 @@ export function links() {
   return [
     {
       rel: 'stylesheet',
-      href: '@zposten/photoswipe-react/dist/photoswipe.css',
+      href: '@zposten/photo-gallery/dist/photoswipe.css',
     },
     {
       rel: 'stylesheet',
-      href: '@zposten/photoswipe-react/dist/default-skin.css',
+      href: '@zposten/photo-gallery/dist/default-skin.css',
     },
     {
       // Optional
       rel: 'stylesheet',
-      href: '@zposten/photoswipe-react/dist/thumbnails.css',
+      href: '@zposten/photo-gallery/dist/thumbnails.css',
     },
   ]
 }
@@ -54,8 +54,8 @@ export function links() {
 The markup is simple yet customizable. The hardest part is just collecting all your image data into the slide format.
 
 ```tsx
-import {Gallery, LightBox, Thumbnail} from '@zposten/photoswipe-react'
-import type {Slide} from '@zposten/photoswipe-react'
+import {Gallery, LightBox, Thumbnail} from '@zposten/photo-gallery'
+import type {Slide} from '@zposten/photo-gallery'
 
 function MyComponent() {
   return (

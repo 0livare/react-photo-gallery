@@ -1,5 +1,5 @@
 {
-  "name": "@zposten/photoswipe-react",
+  "name": "@zposten/photo-gallery",
   "description": "A strongly typed, customizable, React photo viewer with mobile gestures built in that looks great right out of the box.",
   "author": "Zach Posten <zach@posten.io>",
   "license": "MIT",
