@@ -1,8 +1,8 @@
 {
   "name": "@zposten/photo-gallery",
   "description": "A strongly typed, customizable, React photo viewer with mobile gestures built in that looks great right out of the box.",
-  "author": "Zach Posten <zach@posten.io>",
-  "version": "0.2.2",
+  "author": "Zach Olivare <zach@olivare.net>",
+  "version": "0.3.0",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "license": "MIT",
@@ -17,9 +17,7 @@
     "prebuild": "rimraf dist/*",
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "prepub": "cp ../README.md README.md && yarn build && yarn version",
-    "pub": "npm publish --access public",
-    "postpub": "rm README.MD && git push && git push --tags"
+    "pub": "mkdir -p dist && cp -f ../README.md dist/README.md && pnpm run build && yarn version && npm publish --access public && git push && git push --tags"
   },
   "dependencies": {
     "classnames": "^2.3.1",
@@ -33,8 +31,8 @@
     "@types/photoswipe": "^4.1.2",
     "@types/react": "^17.0.38",
     "cross-env": "^5.2.0",
-    "react": "^17.0.2",
-    "react-dom": "^16.8.0-alpha.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "rimraf": "^2.6.3",
     "rollup": "^2.62.0",
     "rollup-plugin-copy": "^3.4.0",

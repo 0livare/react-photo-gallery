@@ -3,7 +3,7 @@
   "author": "Zach Posten <zach@posten.io>",
   "version": "0.1.0",
   "dependencies": {
-    "@zposten/photo-gallery": "^0.2.0",
+    "@zposten/photo-gallery": "workspace:*",
     "@types/node": "^16.11.17",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",

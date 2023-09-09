@@ -1,18 +1,12 @@
 {
-  "name": "@zposten/photo-gallery",
-  "description": "A strongly typed, customizable, React photo viewer with mobile gestures built in that looks great right out of the box.",
-  "author": "Zach Posten <zach@posten.io>",
+  "name": "react-photo-gallery-root",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "lib",
-    "demo",
-    ".yalc/*"
-  ],
   "scripts": {
-    "build": "cd lib && yarn build",
-    "watch": "cd lib && yarn watch",
-    "demo": "cd demo && yarn start"
+    "build": "cd lib && pnpm run build",
+    "watch": "cd lib && pnpm run watch",
+    "demo": "cd demo && pnpm run start",
+    "pub": "cd lib && pnpm run pub"
   },
   "devDependencies": {
     "lerna": "^3.22.1",

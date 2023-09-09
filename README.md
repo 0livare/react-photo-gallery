@@ -5,14 +5,12 @@ Based on the [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe) library.
 
 ### [Demo](https://photoswipe-react-demo.netlify.app)
 
-## Installation
+## Install
 
 ```bash
-# With yarn
-yarn add @zposten/photo-gallery
-
-# Or with NPM
-npm i @zposten/photo-gallery
+npm i @zposten/photo-gallery     # with npm
+pnpm i @zposten/photo-gallery    # with pnpm
+yarn add @zposten/photo-gallery  # with yarn
 ```
 
 ## Import Global CSS
@@ -54,8 +52,7 @@ export function links() {
 The markup is simple yet customizable. The hardest part is just collecting all your image data into the slide format.
 
 ```tsx
-import {Gallery, LightBox, Thumbnail} from '@zposten/photo-gallery'
-import type {Slide} from '@zposten/photo-gallery'
+import {Gallery, LightBox, Thumbnail, type Slide} from '@zposten/photo-gallery'
 
 function MyComponent() {
   return (
