@@ -1,23 +1,22 @@
 {
-  "name": "@zposten/photo-gallery",
+  "name": "@olivare/react-photo-gallery",
   "description": "A strongly typed, customizable, React photo viewer with mobile gestures built in that looks great right out of the box.",
   "author": "Zach Olivare <zach@olivare.net>",
-  "version": "0.3.0",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "version": "0.3.4",
+  "main": "index.js",
+  "module": "index.esm.js",
   "license": "MIT",
-  "files": [
-    "dist/*"
-  ],
   "repository": {
     "type": "git",
-    "url": "http://www.github.com/zposten/photoswipe-react"
+    "url": "https://github.com/0livare/react-photo-gallery"
   },
   "scripts": {
     "prebuild": "rimraf dist/*",
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "pub": "mkdir -p dist && cp -f ../README.md dist/README.md && pnpm run build && yarn version && npm publish --access public && git push && git push --tags"
+    "copyToDist": "pnpm run build && cp -f ../README.md dist/README.md && yarn version && cp package.json dist/package.json",
+    "pub": "pnpm run copyToDist && cd dist && npm publish --access public && git push && git push --tags",
+    "yalc": "pnpm run copyToDist && cd dist && yalc publish"
   },
   "dependencies": {
     "classnames": "^2.3.1",

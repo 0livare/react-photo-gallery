@@ -8,9 +8,9 @@ Based on the [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe) library.
 ## Install
 
 ```bash
-npm i @zposten/photo-gallery     # with npm
-pnpm i @zposten/photo-gallery    # with pnpm
-yarn add @zposten/photo-gallery  # with yarn
+npm i @olivare/react-photo-gallery     # with npm
+pnpm i @olivare/react-photo-gallery    # with pnpm
+yarn add @olivare/react-photo-gallery  # with yarn
 ```
 
 ## Import Global CSS
@@ -20,9 +20,9 @@ First you need to add the global CSS to your project. Depending on your project 
 This works for create-react-app and Next.js projects (it must be done in `_app.js` for Next.js projects):
 
 ```js
-import '@zposten/photo-gallery/dist/photoswipe.css'
-import '@zposten/photo-gallery/dist/default-skin.css'
-import '@zposten/photo-gallery/dist/thumbnails.css' // Optional
+import '@olivare/react-photo-gallery/photoswipe.css'
+import '@olivare/react-photo-gallery/default-skin.css'
+import '@olivare/react-photo-gallery/thumbnails.css' // Optional
 ```
 
 In Remix, you can add the following at [route layout boundaries](https://remix.run/docs/en/v1/guides/styling):
@@ -32,16 +32,16 @@ export function links() {
   return [
     {
       rel: 'stylesheet',
-      href: '@zposten/photo-gallery/dist/photoswipe.css',
+      href: '@olivare/react-photo-gallery/photoswipe.css',
     },
     {
       rel: 'stylesheet',
-      href: '@zposten/photo-gallery/dist/default-skin.css',
+      href: '@olivare/react-photo-gallery/default-skin.css',
     },
     {
       // Optional
       rel: 'stylesheet',
-      href: '@zposten/photo-gallery/dist/thumbnails.css',
+      href: '@olivare/react-photo-gallery/thumbnails.css',
     },
   ]
 }
@@ -52,7 +52,12 @@ export function links() {
 The markup is simple yet customizable. The hardest part is just collecting all your image data into the slide format.
 
 ```tsx
-import {Gallery, LightBox, Thumbnail, type Slide} from '@zposten/photo-gallery'
+import {
+  Gallery,
+  LightBox,
+  Thumbnail,
+  type Slide,
+} from '@olivare/react-photo-gallery'
 
 function MyComponent() {
   return (

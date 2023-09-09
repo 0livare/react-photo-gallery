@@ -16,7 +16,7 @@ importers:
 
   demo:
     dependencies:
-      '@zposten/photo-gallery':
+      '@olivare/react-photo-gallery':
         specifier: workspace:*
         version: link:../lib
       '@types/node':
