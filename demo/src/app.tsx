@@ -1,9 +1,13 @@
-import {Gallery, LightBox, Thumbnail} from '@olivare/react-photo-gallery'
-import type {Slide} from '@olivare/react-photo-gallery'
+import {
+  Gallery,
+  LightBox,
+  Thumbnail,
+  type Slide,
+} from '@olivare/react-photo-gallery'
 
-import '@olivare/react-photo-gallery/dist/photoswipe.css'
-import '@olivare/react-photo-gallery/dist/default-skin.css'
-import '@olivare/react-photo-gallery/dist/thumbnails.css'
+import '@olivare/react-photo-gallery/photoswipe.css'
+import '@olivare/react-photo-gallery/default-skin.css'
+import '@olivare/react-photo-gallery/thumbnails.css'
 
 export function App() {
   return (
@@ -16,14 +20,7 @@ export function App() {
   )
 }
 
-// let slidesCats: Slide[] = [
-//   {src: 'http://placekitten.com/g/300/200', size: '300x200', title: 'cat'},
-//   {src: 'http://placekitten.com/g/600/400', size: '300x200', title: 'cat'},
-//   {src: 'http://placekitten.com/g/900/600', size: '300x200', title: 'cat'},
-//   {src: 'http://placekitten.com/g/1200/800', size: '300x200', title: 'cat'},
-// ]
-
-let slides: Slide[] = [
+const slides: Slide[] = [
   {
     src: 'https://farm1.staticflickr.com/5629/23407658115_cfa1899b10_k.jpg',
     size: '2048x879',

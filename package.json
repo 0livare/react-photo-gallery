@@ -1,5 +1,4 @@
 {
-  "name": "react-photo-gallery-root",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -7,9 +6,5 @@
     "watch": "cd lib && pnpm run watch",
     "demo": "cd demo && pnpm run start",
     "pub": "cd lib && pnpm run pub"
-  },
-  "devDependencies": {
-    "lerna": "^3.22.1",
-    "unorepo": "^0.1.0"
   }
 }
